@@ -1,0 +1,3 @@
+This is just because I'm too lazy to look up verse references one by one. Now, I scroll through things and hit ctrl-c on the references I find to look them up.
+
+This depends on my as of now unrealsed version of the new parabible server... sorry...
