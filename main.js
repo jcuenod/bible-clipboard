@@ -9,6 +9,8 @@ const wrapAndIndent = (text) => wrap(text).replace(/\n/g, "\n    ")
 const modulesToString = (modules) => `
 NET:
     ${wrapAndIndent(modules.find(m => m.module_id === 4).text_as_html_string.replace(/<br \/>/g, "\n"))}
+JPS: 
+    ${wrapAndIndent(modules.find(m => m.module_id === 3).text_as_html_string.replace(/<br \/>/g, "\n"))}
 BHSA:
     ${wrapAndIndent(wordArrayToString(modules.find(m => m.module_id === 7).text_as_word_array))}
 
@@ -27,7 +29,7 @@ listener.on('change', async value => {
     if (ref.book && ref.chapter && ref.verse) {
         console.log(ref)
         const refString = `${ref.book} ${ref.chapter}:${ref.verse} `
-        const r = await (await fetch(`http://localhost:3000/api/v2/chapter?modules=net,etcbc+bhsa&reference=${refString}`)).json()
+        const r = await (await fetch(`http://localhost:3000/api/v2/text?modules=jps,net,etcbc+bhsa&reference=${refString}`)).json()
         console.log(modulesToString(r.data[0].modules))
     }
     else {
